@@ -1,10 +1,39 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about" v-if="auth.hasRole('user')">About</router-link>
   </div>
   <router-view/>
+  <button @click="logout" v-if="authenticated">Logout</button>
+  <button @click="login" v-if="!authenticated">Login</button>
 </template>
+
+<script>
+import auth from './auth'
+
+export default {
+  data () {
+    return {
+      auth: auth,
+      authenticated: false
+    }
+  },
+  created () {
+    const app = this
+    auth.state.keycloak.onReady = function (status) {
+      app.authenticated = status
+    }
+  },
+  methods: {
+    logout () {
+      auth.logout()
+    },
+    login () {
+      auth.login()
+    }
+  }
+}
+</script>
 
 <style>
 #app {

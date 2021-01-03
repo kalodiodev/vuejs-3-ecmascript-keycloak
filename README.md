@@ -1,4 +1,4 @@
-# keycloak-vue
+# VueJs 3 Ecmascript Example of keycloak authentication
 
 ## Project setup
 ```
