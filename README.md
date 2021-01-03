@@ -1,4 +1,6 @@
-# VueJs 3 Ecmascript Example of keycloak authentication
+# Vuejs 3 Ecmascript with Keycloak
+
+Example of vuejs 3 application in ecmascript with keycloak openid authentication.
 
 ## Project setup
 ```
